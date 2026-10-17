@@ -260,7 +260,7 @@ qemu_configure() { # qemu_configure <abi> <prefix>
         --disable-vhost-user --disable-vhost-kernel --disable-vhost-net --disable-virtfs \
         --disable-install-blobs --disable-modules \
         --disable-plugins \
-        -Dwerror=false -Db_lto=false -Drust=disabled -Ddbus_display=disabled ) >"$bdir/configure.log" 2>&1 ||
+        -Dwerror=false -Db_lto=false -Drust=disabled -Ddbus_display=disabled -Ddefault_library=static ) >"$bdir/configure.log" 2>&1 ||
         { echo "--- configure failed ---" >&2; tail -60 "$bdir/configure.log" >&2; exit 1; }
     ( cd "$bdir" && ninja -j "$JOBS" ) >"$bdir/build.log" 2>&1 ||
         { echo "--- ninja failed ---" >&2; tail -60 "$bdir/build.log" >&2; exit 1; }
